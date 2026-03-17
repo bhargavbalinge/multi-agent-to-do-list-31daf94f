@@ -7,6 +7,8 @@ tasks = []
 def index():
     if request.method == 'POST':
         task = request.form['task']
+        # Remove leading/trailing whitespace
+        task = task.strip()
         # Escape the input to prevent XSS
         task = escape(task)
         if task:
